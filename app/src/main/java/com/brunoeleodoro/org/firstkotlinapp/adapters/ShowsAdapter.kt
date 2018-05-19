@@ -11,16 +11,8 @@ import com.brunoeleodoro.org.firstkotlinapp.domain.Show
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.linha_show.view.*
 
-class ShowsAdapter() : RecyclerView.Adapter<ShowsAdapter.ShowsHolder>() {
+class ShowsAdapter(val context: Context, val shows: List<Show> = ArrayList<Show>() ) : RecyclerView.Adapter<ShowsAdapter.ShowsHolder>() {
 
-    var context : Context? = null
-    var shows : List<Show> = ArrayList<Show>()
-
-    constructor(context: Context,shows: List<Show> ) : this() {
-        this.shows = shows
-        this.context = context
-        Log.i("script","shows size="+shows.size)
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShowsHolder {
         val holder = ShowsHolder(LayoutInflater.from(context).inflate(R.layout.linha_show,null))
